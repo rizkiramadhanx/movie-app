@@ -1,27 +1,37 @@
-import React from 'react';
 import Logo from '@/assets/logo.svg';
+import {
+  Box,
+  Button,
+  Flex,
+  Text,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react';
+import ToggleColorMode from '@/components/button/ToggleColorMode';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-[1280px] px-[30px] sm:px-[70px] md:[110px] m-auto">
-        <div className="flex items-center justify-between h-[100px]">
-          <div className="flex items-center">
-            <img src={Logo} width={100} />
-            <ul className="flex items-center ml-[70px] gap-x-10">
-              <li>Home</li>
-              <li>Learnings</li>
-              <li>About Us</li>
-              <li>Testimonial</li>
-            </ul>
-          </div>
-          <div>
-            <button>Login</button>
-            <button>Sign Up</button>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <Box display="flex" justifyContent="center" shadow="sm" height="14">
+      <Flex
+        paddingX={{
+          base: '3',
+          sm: '5',
+          lg: '8',
+        }}
+        justify="space-between"
+        maxWidth={1280}
+        bg={useColorModeValue('white', 'gray.800')}
+        width="full"
+        height="full"
+        alignItems="center"
+      >
+        <Button size="sm">
+          <GiHamburgerMenu />
+        </Button>
+        <ToggleColorMode />
+      </Flex>
+    </Box>
   );
 };
 
