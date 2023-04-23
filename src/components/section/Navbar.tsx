@@ -6,11 +6,14 @@ import {
   Text,
   useColorMode,
   useColorModeValue,
+  useDisclosure,
 } from '@chakra-ui/react';
 import ToggleColorMode from '@/components/button/ToggleColorMode';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import Sidebar from '../sidebar/Sidebar';
 
 const Navbar = () => {
+  const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <Box display="flex" justifyContent="center" shadow="sm" height="14">
       <Flex
@@ -27,10 +30,11 @@ const Navbar = () => {
         alignItems="center"
       >
         <Button size="sm">
-          <GiHamburgerMenu />
+          <GiHamburgerMenu onClick={onOpen} />
         </Button>
         <ToggleColorMode />
       </Flex>
+      <Sidebar onOpen isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };
