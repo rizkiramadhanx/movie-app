@@ -5,16 +5,17 @@ import { BASE_URL_IMAGE_MOVIE } from '@/config';
 import usePagination from '@/hooks/usePagination';
 import { Box, SimpleGrid, Text } from '@chakra-ui/react';
 import { Suspense, lazy, useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import useSWR from 'swr';
-import { useParams, useRoutes } from 'react-router-dom';
 
 const CardMovieLazy = lazy(() => import('@/components/card/CardMovie'));
 
 const Genre = () => {
   const { currentPage, addPage, toPage, previousPage } = usePagination();
+
   const [genreName, setGenreName] = useState('ajajaj');
 
-  const { data: dataGenres, isLoading } = useSWR('/genre/movie/list');
+  const { data: dataGenres } = useSWR('/genre/movie/list');
 
   let { id } = useParams();
 

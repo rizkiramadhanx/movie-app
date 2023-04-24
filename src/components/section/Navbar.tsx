@@ -1,4 +1,3 @@
-import Logo from '@/assets/logo.svg';
 import {
   Box,
   Button,
@@ -10,10 +9,16 @@ import {
 } from '@chakra-ui/react';
 import ToggleColorMode from '@/components/button/ToggleColorMode';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { BiSearch } from 'react-icons/bi';
 import Sidebar from '../sidebar/Sidebar';
+import { Link as LinkNav, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  // for button to url on navbar
+  const { pathname } = useLocation();
+
   const { isOpen, onClose, onOpen } = useDisclosure();
+
   return (
     <Box display="flex" justifyContent="center" shadow="sm" height="14">
       <Flex
@@ -32,7 +37,17 @@ const Navbar = () => {
         <Button size="sm" onClick={onOpen}>
           <GiHamburgerMenu />
         </Button>
-        <ToggleColorMode />
+        <Text fontWeight="bold" fontSize="2xl">
+          Pahe.In
+        </Text>
+        <Flex gap={2}>
+          {pathname !== '/search' && (
+            <Button size="sm" as={LinkNav} to="/search?focus=true">
+              <BiSearch />
+            </Button>
+          )}
+          <ToggleColorMode />
+        </Flex>
       </Flex>
       <Sidebar onOpen isOpen={isOpen} onClose={onClose} />
     </Box>
