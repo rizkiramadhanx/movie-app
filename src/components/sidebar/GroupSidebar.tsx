@@ -7,7 +7,7 @@ import { BiChevronRight } from 'react-icons/bi';
 import { IconType } from 'react-icons';
 
 export type listType = {
-  id: number;
+  slug: number | string;
   icon: IconType;
   name: string;
 };
@@ -16,9 +16,9 @@ interface GroupListSidebar {
   title: string;
   list: listType[];
   onClose: () => void;
-  slug: string;
+  url: string;
 }
-const GroupSidebar = ({ title, list, onClose, slug }: GroupListSidebar) => {
+const GroupSidebar = ({ title, list, onClose, url }: GroupListSidebar) => {
   return (
     <>
       <Text fontWeight="bold" marginY="2">
@@ -41,7 +41,7 @@ const GroupSidebar = ({ title, list, onClose, slug }: GroupListSidebar) => {
               //@ts-ignore
               as={LinkNav}
               onClick={onClose}
-              to={slug + data.id}
+              to={url + data.slug}
               style={{
                 textDecoration: 'none',
               }}

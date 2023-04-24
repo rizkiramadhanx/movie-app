@@ -29,8 +29,8 @@ const Navbar = () => {
         height="full"
         alignItems="center"
       >
-        <Button size="sm">
-          <GiHamburgerMenu onClick={onOpen} />
+        <Button size="sm" onClick={onOpen}>
+          <GiHamburgerMenu />
         </Button>
         <ToggleColorMode />
       </Flex>

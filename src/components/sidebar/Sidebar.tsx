@@ -12,6 +12,8 @@ import useSWR from 'swr';
 
 import { BiBarChartSquare, BiCalendar, BiTrendingUp } from 'react-icons/bi';
 import GroupSidebar, { listType } from './GroupSidebar';
+import { transform } from 'framer-motion';
+import { tranforsmDataGenresToFormatGroupSideBar } from '@/utils/logic';
 
 interface Drawer {
   isOpen: boolean;
@@ -21,23 +23,23 @@ interface Drawer {
 const GROUP_DISCOVER: listType[] = [
   {
     icon: BiTrendingUp,
-    id: 123,
+    slug: 'trending',
     name: 'Popular',
   },
   {
     icon: BiCalendar,
-    id: 123,
+    slug: 'upcoming',
     name: 'Upcoming',
   },
   {
     icon: BiBarChartSquare,
-    id: 123,
+    slug: 'top-rated',
     name: 'Top Rated',
   },
 ];
 
 const Sidebar = ({ isOpen, onClose }: Drawer) => {
-  const { data, error, isLoading } = useSWR('/genre/movie/list');
+  const { data } = useSWR('/genre/movie/list');
 
   return (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
@@ -49,17 +51,17 @@ const Sidebar = ({ isOpen, onClose }: Drawer) => {
             Movie App
           </Heading>
           <GroupSidebar
-            slug="/discover/"
+            url="/discover/"
             title="Discover"
             onClose={onClose}
             list={GROUP_DISCOVER}
           />
           {data && (
             <GroupSidebar
-              slug="/genre/"
+              url="/genre/"
               title="Genres"
               onClose={onClose}
-              list={data.genres}
+              list={tranforsmDataGenresToFormatGroupSideBar(data.genres)}
             />
           )}
         </DrawerBody>

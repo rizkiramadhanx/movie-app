@@ -4,38 +4,25 @@ import Layout from '@/components/layout/Layout';
 import Pagination from '@/components/pagination';
 import { BASE_URL_IMAGE_MOVIE } from '@/config';
 import usePagination from '@/hooks/usePagination';
-import {
-  Box,
-  SimpleGrid,
-  Select,
-  Text,
-  Spinner,
-  Button,
-} from '@chakra-ui/react';
+import { transformRegionsToSelectFormat } from '@/utils/logic';
+import { Box, SimpleGrid, Text } from '@chakra-ui/react';
 import { Suspense, lazy, useEffect, useState } from 'react';
 import useSWR from 'swr';
 
 const CardMovieLazy = lazy(() => import('@/components/card/CardMovie'));
 
-const DATA_OPTION_TIME = [
-  {
-    value: 'day',
-    name: 'Day',
-  },
-  {
-    value: 'week',
-    name: 'Week',
-  },
-];
+const Toprated = () => {
+  const { data: regions } = useSWR(`/watch/providers/regions`);
 
-const Trending = () => {
-  const [payload, setPayload] = useState('day');
+  const [payload, setPayload] = useState('ID');
 
   const { currentPage, addPage, toPage, previousPage } = usePagination();
 
-  useEffect(() => {}, [payload]);
+  const { data } = useSWR(
+    `/movie/top_rated?page=${currentPage}&region=${payload}`
+  );
 
-  const { data } = useSWR(`/trending/movie/${payload}?page=${currentPage}`);
+  useEffect(() => {}, [payload]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPayload(e.target.value);
@@ -65,7 +52,7 @@ const Trending = () => {
             mb={10}
           >
             <Text fontWeight="extrabold" fontSize="xl">
-              Trending Movie in this{' '}
+              Top Rated Movie on{' '}
               <span
                 style={{
                   textDecoration: 'underline',
@@ -75,14 +62,31 @@ const Trending = () => {
                 {payload}
               </span>
             </Text>
-            <SelectFilter
-              dataOption={DATA_OPTION_TIME}
-              size={'sm'}
-              width="200px"
-              onChange={handleChange}
-            />
+            {regions && (
+              <SelectFilter
+                size="sm"
+                dataOption={transformRegionsToSelectFormat(regions.results)}
+                width="200px"
+                onChange={handleChange}
+                defaultValue="ID"
+              />
+            )}
           </Box>
-          <SimpleGrid minHeight="500px" columns={[2, null, 4, 5]} gap={6}>
+          <SimpleGrid
+            minHeight="500px"
+            columns={data && !data.results[0] ? 1 : [2, null, 4, 5]}
+            gap={6}
+          >
+            {data && !data.results[0] && (
+              <Text
+                fontWeight="extrabold"
+                fontSize="xl"
+                textAlign="center"
+                width="full"
+              >
+                No movie found
+              </Text>
+            )}
             {data
               ? data.results.map((e: any, i: number) => (
                   <Suspense fallback={<SkeletonCardMovie />} key={i}>
@@ -115,4 +119,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default Toprated;

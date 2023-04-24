@@ -1,18 +1,16 @@
 import {
   Box,
   GridItem,
-  Skeleton,
   Spinner,
   Text,
-  useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { CiImageOff } from 'react-icons/ci';
 import { Rating } from '@smastrom/react-rating';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import '@smastrom/react-rating/style.css';
 import useImage from '@/hooks/useImage';
-import { BASE_URL_IMAGE_MOVIE } from '@/config';
+import '@smastrom/react-rating/style.css';
 
 interface CardMovieProps {
   image: string;
@@ -31,7 +29,7 @@ const StarDrawing = (
 );
 
 const CardMovie = ({ image, vote_average, title }: CardMovieProps) => {
-  const { loaded } = useImage({ src: image });
+  const { loaded, error } = useImage({ src: image });
   return (
     <GridItem
       _hover={{
@@ -44,9 +42,20 @@ const CardMovie = ({ image, vote_average, title }: CardMovieProps) => {
       rounded="8px"
       bg={useColorModeValue('gray.800', 'white')}
     >
-      {!loaded && (
+      {error && (
         <Box
-          height="250px"
+          height="330px"
+          bg="gray.600"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <CiImageOff size={30} />
+        </Box>
+      )}
+      {!loaded && !error && (
+        <Box
+          height="330px"
           bg="gray.600"
           display="flex"
           justifyContent="center"

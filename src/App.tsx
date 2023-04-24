@@ -1,6 +1,8 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
 import { Genre, Main, Trending } from '@/page';
+import Upcoming from './page/Upcoming';
+import Toprated from './page/Toprated';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,14 @@ const router = createBrowserRouter([
   {
     path: '/discover/trending',
     element: <Trending />,
+  },
+  {
+    path: '/discover/upcoming',
+    element: <Upcoming />,
+  },
+  {
+    path: '/discover/top-rated',
+    element: <Toprated />,
   },
 ]);
 
