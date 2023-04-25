@@ -94,6 +94,7 @@ const Upcoming = () => {
                       title={e.title}
                       vote_average={e.vote_average}
                       image={BASE_URL_IMAGE_MOVIE + e.poster_path}
+                      releaseDate={e.release_date}
                     />
                   </Suspense>
                 ))

@@ -16,6 +16,7 @@ interface CardMovieProps {
   image: string;
   title: string;
   vote_average: number;
+  releaseDate?: string;
 }
 const StarDrawing = (
   <path
@@ -28,10 +29,16 @@ const StarDrawing = (
   />
 );
 
-const CardMovie = ({ image, vote_average, title }: CardMovieProps) => {
+const CardMovie = ({
+  image,
+  vote_average,
+  title,
+  releaseDate,
+}: CardMovieProps) => {
   const { loaded, error } = useImage({ src: image });
   return (
     <GridItem
+      position="relative"
       _hover={{
         backgroundColor: useColorModeValue('gray.700', 'white'),
         boxShadow: `#cf481f 0px 0px 1px, rgba(0, 0, 0, 0.12) 0px -6px 10px, #5a00cf 0px 4px 6px, #cf481f 0px 1px 13px, #5a00cf 0px -3px 5px`,
@@ -42,11 +49,25 @@ const CardMovie = ({ image, vote_average, title }: CardMovieProps) => {
       rounded="8px"
       bg={useColorModeValue('gray.800', 'white')}
     >
+      <Box
+        position="absolute"
+        top={5}
+        right={0}
+        bg="whiteAlpha.800"
+        px={2}
+        roundedLeft="2px"
+        opacity={50}
+      >
+        {releaseDate}
+      </Box>
       {error && (
         <Box
           height="330px"
           bg="gray.600"
           display="flex"
+          style={{
+            borderRadius: '8px 8px 0 0',
+          }}
           justifyContent="center"
           alignItems="center"
         >
@@ -57,6 +78,9 @@ const CardMovie = ({ image, vote_average, title }: CardMovieProps) => {
         <Box
           height="330px"
           bg="gray.600"
+          style={{
+            borderRadius: '8px 8px 0 0',
+          }}
           display="flex"
           justifyContent="center"
           alignItems="center"

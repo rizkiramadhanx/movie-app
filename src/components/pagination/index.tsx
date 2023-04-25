@@ -38,12 +38,19 @@ const Pagination = ({
         <ButtonPagination
           key={i}
           label={page}
-          backgroundColor={page === currentPage ? 'gray.300' : 'white'}
+          backgroundColor={page === currentPage ? 'orange.300' : 'white'}
           onClick={() => toPage(page)}
         />
       ))}
       {lastPage === currentPage ? (
-        <ButtonPagination label="Last Page" onClick={() => addPage()} />
+        <ButtonPagination
+          label="Last Page"
+          disabled
+          cursor="default"
+          _hover={{
+            backgroundColor: 'white',
+          }}
+        />
       ) : (
         <ButtonPagination
           label="Next"

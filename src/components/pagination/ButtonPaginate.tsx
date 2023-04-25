@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from '@chakra-ui/react';
+import { Button, ButtonProps, useColorModeValue } from '@chakra-ui/react';
 
 interface ButtonPaginationProps {
   label: string | number;
@@ -10,8 +10,9 @@ export const ButtonPagination = ({
 }: ButtonPaginationProps & ButtonProps) => {
   return (
     <Button
-      colorScheme="cyan"
+      colorScheme="orange"
       backgroundColor="white"
+      variant={useColorModeValue('outline', 'solid')}
       _hover={{ backgroundColor: 'gray.100' }}
       size={['sm', 'md', 'lg']}
       {...rest}
