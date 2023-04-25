@@ -11,3 +11,7 @@
   font-weight: bold;
   color: #fff;
 }
+
+.link {
+  flex: auto;
+}
