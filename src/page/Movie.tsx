@@ -74,7 +74,7 @@ const Movie = () => {
                         {data.vote_count} ✅
                       </Text>
                     </Flex>
-                    <Text fontSize={['2xs', '3xs', 'xl']} fontWeight={['bold']}>
+                    <Text fontSize={['md', 'md', 'xl']} fontWeight={['bold']}>
                       {data.production_countries[0].name} | {data.runtime} min |
                       {` ${data.release_date}`}
                     </Text>
