@@ -29,7 +29,7 @@ const Toprated = () => {
   };
 
   return (
-    <Layout>
+    <Layout head="Top Rated | Pahe.in">
       <Box display="flex" justifyContent="center" marginY={10}>
         <Box
           paddingX={{
