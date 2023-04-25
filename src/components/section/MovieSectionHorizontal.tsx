@@ -57,6 +57,9 @@ const MovieSectionHorizontal = ({
           display="flex"
           alignItems="center"
           gap={2}
+          _hover={{
+            color: 'orange',
+          }}
         >
           See more <BsArrowRight size={20} />
         </Text>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from '../section';
+import { Footer, Navbar } from '../section';
 import { Helmet } from 'react-helmet';
 
 const Layout = ({
@@ -18,6 +18,7 @@ const Layout = ({
       </Helmet>
       <Navbar />
       {children}
+      <Footer />
     </>
   );
 };

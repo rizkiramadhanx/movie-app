@@ -58,14 +58,14 @@ const Main = () => {
               minHeight="400px"
             >
               <Text fontWeight={'bold'} fontSize="5xl" color="white">
-                Apa itu Pahe.in ?
+                What is <span className="neon">Pahe.in</span> ?
               </Text>
               <Text color="white">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Nostrum exercitationem dolorum consequatur eveniet explicabo
-                officiis iure quas reprehenderit possimus consectetur, unde
-                cumque error, adipisci nulla autem labore voluptas facilis!
-                Laborum.
+                Pahe.in is a popular website that provides users with a wide
+                range of free movies, TV shows, and other entertainment content
+                that can be downloaded or streamed online. It was established in
+                Indonesia and became a popular platform for fans of movies and
+                TV shows to watch and download their favorite content.
               </Text>
               <Flex gap={5}>
                 <Button>Original Web</Button>

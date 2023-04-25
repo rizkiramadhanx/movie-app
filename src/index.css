@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.neon {
+  animation: neonAnim 2s alternate-reverse infinite;
+  color: #3710ee;
+}
+@keyframes neonAnim {
+  from {
+    text-shadow: 0 0 10px rgba(55, 16, 238, 0.7),
+      0 0 40px rgba(55, 16, 238, 0.7), 0 0 100px rgba(55, 16, 238, 0.7);
+  }
+  to {
+    text-shadow: 0 0 5px rgba(55, 16, 238, 0.7), 0 0 20px rgba(55, 16, 238, 0.7),
+      0 0 60px rgba(55, 16, 238, 0.7);
+  }
+}
