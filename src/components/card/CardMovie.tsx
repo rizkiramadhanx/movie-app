@@ -33,7 +33,7 @@ const CardMovie = ({ image, vote_average, title }: CardMovieProps) => {
   return (
     <GridItem
       _hover={{
-        backgroundColor: 'gray.700',
+        backgroundColor: useColorModeValue('gray.700', 'white'),
         boxShadow: `#cf481f 0px 0px 1px, rgba(0, 0, 0, 0.12) 0px -6px 10px, #5a00cf 0px 4px 6px, #cf481f 0px 1px 13px, #5a00cf 0px -3px 5px`,
         filter: 'grayscale(50%)',
         transform: 'scale(105%)',
