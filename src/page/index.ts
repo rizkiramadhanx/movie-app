@@ -5,5 +5,6 @@ import Toprated from './Toprated';
 import Trending from './Trending';
 import Error from './Error';
 import Upcoming from './Upcoming';
+import Movie from './Movie';
 
-export { Genre, Main, Trending, Search, Error, Toprated, Upcoming };
+export { Genre, Main, Trending, Search, Error, Toprated, Upcoming, Movie };

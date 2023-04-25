@@ -8,6 +8,7 @@ import {
 import { CiImageOff } from 'react-icons/ci';
 import { Rating } from '@smastrom/react-rating';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Link as LinkNav } from 'react-router-dom';
 
 import useImage from '@/hooks/useImage';
 import '@smastrom/react-rating/style.css';
@@ -17,6 +18,7 @@ interface CardMovieProps {
   title: string;
   vote_average: number;
   releaseDate?: string;
+  id: string;
 }
 const StarDrawing = (
   <path
@@ -34,10 +36,14 @@ const CardMovie = ({
   vote_average,
   title,
   releaseDate,
+  id,
 }: CardMovieProps) => {
   const { loaded, error } = useImage({ src: image });
   return (
     <GridItem
+      cursor="pointer"
+      as={LinkNav}
+      to={'/movie/' + id}
       position="relative"
       _hover={{
         backgroundColor: useColorModeValue('gray.700', 'white'),

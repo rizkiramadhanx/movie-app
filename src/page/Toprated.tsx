@@ -91,6 +91,7 @@ const Toprated = () => {
               ? data.results.map((e: any, i: number) => (
                   <Suspense fallback={<SkeletonCardMovie />} key={i}>
                     <CardMovieLazy
+                      id={e.id}
                       title={e.title}
                       vote_average={e.vote_average}
                       image={BASE_URL_IMAGE_MOVIE + e.poster_path}

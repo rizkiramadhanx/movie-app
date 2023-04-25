@@ -37,7 +37,7 @@ const Navbar = () => {
         <Button size="sm" onClick={onOpen}>
           <GiHamburgerMenu />
         </Button>
-        <Text fontWeight="bold" fontSize="2xl">
+        <Text fontWeight="bold" fontSize="2xl" as={LinkNav} to="/">
           Pahe.In
         </Text>
         <Flex gap={2}>

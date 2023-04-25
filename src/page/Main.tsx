@@ -63,12 +63,12 @@ const Main = () => {
               flexDirection="column"
               gap={2}
               justifyContent="center"
-              minHeight="500px"
+              minHeight="400px"
             >
-              <Text fontWeight={'bold'} fontSize="5xl">
+              <Text fontWeight={'bold'} fontSize="5xl" color="white">
                 Apa itu Pahe.in ?
               </Text>
-              <Text>
+              <Text color="white">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Nostrum exercitationem dolorum consequatur eveniet explicabo
                 officiis iure quas reprehenderit possimus consectetur, unde
@@ -102,10 +102,16 @@ const Main = () => {
             </Swiper>
           </SimpleGrid>
           <MovieSectionHorizontal
-            label="aaa"
-            slug="aaa"
+            label="Top Rated Movie"
+            slug="/movie/"
             urlFetching="/movie/top_rated"
-            urlSeeMore="a"
+            urlSeeMore="/discover/top-rated"
+          />
+          <MovieSectionHorizontal
+            label="Up Coming"
+            slug="/movie/"
+            urlFetching="/movie/upcoming"
+            urlSeeMore="/discover/upcoming"
           />
         </Box>
       </Box>

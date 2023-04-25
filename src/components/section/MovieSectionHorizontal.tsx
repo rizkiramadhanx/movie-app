@@ -29,7 +29,11 @@ const MovieSectionHorizontal = ({
       <HStack overflowX="scroll" p={2}>
         {data
           ? data.results.map((e: any, i: number) => (
-              <CardMain key={i} image={BASE_URL_IMAGE_MOVIE + e.poster_path} />
+              <CardMain
+                slug={slug + e.id}
+                key={i}
+                image={BASE_URL_IMAGE_MOVIE + e.poster_path}
+              />
             ))
           : // @ts-ignore
             Array.apply(null, { length: 10 }).map((e, i) => (

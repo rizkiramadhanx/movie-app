@@ -1,14 +1,13 @@
 import useImage from '@/hooks/useImage';
-import { Box, Spinner } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { CiImageOff } from 'react-icons/ci';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { Link as LinkNav } from 'react-router-dom';
 
-const CardMain = ({ image, slug }: { image: string; slug: string }) => {
+const ImageMovie = ({ image }: { image: string }) => {
   const { loaded, error } = useImage({ src: image });
 
   return (
-    <Box minWidth="200px" as={LinkNav} to={slug} cursor="pointer">
+    <Box width="full" justifyContent={'center'} display={'flex'}>
       {error && (
         <Box
           height="330px"
@@ -19,18 +18,6 @@ const CardMain = ({ image, slug }: { image: string; slug: string }) => {
           alignItems="center"
         >
           <CiImageOff size={30} />
-        </Box>
-      )}
-      {!loaded && !error && (
-        <Box
-          height="330px"
-          bg="gray.600"
-          borderRadius="8px"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Spinner size="xl" color="white" />
         </Box>
       )}
       {loaded && (
@@ -45,4 +32,4 @@ const CardMain = ({ image, slug }: { image: string; slug: string }) => {
   );
 };
 
-export default CardMain;
+export default ImageMovie;

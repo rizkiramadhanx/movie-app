@@ -8,6 +8,7 @@ import {
   Upcoming,
   Toprated,
   Search,
+  Movie,
 } from '@/page';
 
 const router = createBrowserRouter([
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
   {
     path: '/search',
     element: <Search />,
+    errorElement: <Error code={400} />,
+  },
+  {
+    path: '/movie/:movieId',
+    element: <Movie />,
     errorElement: <Error code={400} />,
   },
   {
