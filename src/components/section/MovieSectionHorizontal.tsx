@@ -42,8 +42,8 @@ const MovieSectionHorizontal = ({
         <HStack>
           {
             //@ts-ignore
-            Array.apply(null, { length: 3 }).map(() => (
-              <BsArrowRight className="blink" size={30} />
+            Array.apply(null, { length: 3 }).map((_, key) => (
+              <BsArrowRight className="blink" key={key} size={30} />
             ))
           }
         </HStack>

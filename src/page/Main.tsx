@@ -31,7 +31,7 @@ const Main = () => {
   const { data } = useSWR(`/discover/movie`);
 
   const handleTouchCard = (e: any) => {
-    setBackgroundHero(e);
+    setBackgroundHero(data.results[e].backdrop_path);
   };
 
   useEffect(() => {}, [backgroundHero]);
@@ -49,19 +49,21 @@ const Main = () => {
           width="full"
           display="flex"
           flexDirection="column"
+          gap={10}
         >
           <SimpleGrid
-            bgGradient="linear(to-l, #7928CA, #FF0080)"
             display="grid"
             columns={[1, null, 2]}
+            backgroundImage={BASE_URL_IMAGE_MOVIE + backgroundHero}
+            backgroundSize="cover"
             paddingY={5}
             gap={6}
           >
             <Flex
               flexDirection="column"
               gap={2}
-              minHeight="calc(100vh - 56px)"
               justifyContent="center"
+              minHeight="500px"
             >
               <Text fontWeight={'bold'} fontSize="5xl">
                 Apa itu Pahe.in ?
@@ -83,13 +85,13 @@ const Main = () => {
               grabCursor={true}
               modules={[EffectCards]}
               className="mySwiper"
+              onActiveIndexChange={(e) => handleTouchCard(e.activeIndex)}
             >
               {data &&
                 // @ts-ignore
                 data.results.map((e, key) => (
                   <SwiperSlide key={key}>
                     <LazyLoadImage
-                      onMouseEnter={() => handleTouchCard(e.backdrop_path)}
                       src={BASE_URL_IMAGE_MOVIE + e.poster_path}
                       style={{
                         borderRadius: '8px 8px 0 0',
