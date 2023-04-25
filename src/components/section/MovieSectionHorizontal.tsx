@@ -1,11 +1,9 @@
-import { Box, BoxProps, HStack, Text } from '@chakra-ui/react';
-import React from 'react';
-import CardMain from '../card/CardMain';
-import SkeletonCardMovie from '../card/SkeletonCardMovie';
-import { BsArrowRight } from 'react-icons/bs';
 import { BASE_URL_IMAGE_MOVIE } from '@/config';
-import useSWR from 'swr';
+import { Box, BoxProps, HStack, Text } from '@chakra-ui/react';
+import { BsArrowRight } from 'react-icons/bs';
 import { Link as LinkNav } from 'react-router-dom';
+import useSWR from 'swr';
+import { CardMain, SkeletonCardMovie } from '@/components/card';
 
 interface MovieSectionHorizontalProps {
   label: string;

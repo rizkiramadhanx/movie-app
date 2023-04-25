@@ -76,8 +76,8 @@ const Main = () => {
                 Laborum.
               </Text>
               <Flex gap={5}>
-                <Button>Cuaks</Button>
-                <Button>Cuaks</Button>
+                <Button>Original Web</Button>
+                <Button>IMDB</Button>
               </Flex>
             </Flex>
             <Swiper
