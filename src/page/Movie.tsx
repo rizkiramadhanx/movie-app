@@ -20,7 +20,7 @@ const Movie = () => {
   const { data, isLoading } = useSWR(`/movie/${movieId}`);
 
   return (
-    <Layout>
+    <Layout head="Detail Movie | Pahe.in">
       <Box display="flex" justifyContent="center" marginY={10}>
         <Box
           paddingX={{

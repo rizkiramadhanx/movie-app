@@ -1,28 +1,20 @@
 import Layout from '@/components/layout/Layout';
-import {
-  Box,
-  Button,
-  Flex,
-  Grid,
-  SimpleGrid,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { BASE_URL_IMAGE_MOVIE } from '@/config';
+import { Box, Button, Flex, SimpleGrid, Text } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
 import useSWR from 'swr';
-import { BASE_URL_IMAGE_200, BASE_URL_IMAGE_MOVIE } from '@/config';
-import { useState, useEffect } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
+import '@/css/swiper.css';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
-import '@/css/swiper.css';
 
 // import required modules
-import { EffectCards } from 'swiper';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import MovieSectionHorizontal from '@/components/section/MovieSectionHorizontal';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { EffectCards } from 'swiper';
 
 const Main = () => {
   const [backgroundHero, setBackgroundHero] = useState(
@@ -37,7 +29,7 @@ const Main = () => {
   useEffect(() => {}, [backgroundHero]);
 
   return (
-    <Layout>
+    <Layout head="Home | Pahe.in">
       <Box display="flex" justifyContent="center">
         <Box
           paddingX={{

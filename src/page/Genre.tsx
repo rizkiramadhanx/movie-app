@@ -29,7 +29,7 @@ const Genre = () => {
   );
 
   return (
-    <Layout>
+    <Layout head="Genre | Pahe.in">
       <Box display="flex" justifyContent="center" marginY={10}>
         <Box
           paddingX={{

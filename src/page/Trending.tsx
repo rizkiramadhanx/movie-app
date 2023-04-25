@@ -42,7 +42,7 @@ const Trending = () => {
   };
 
   return (
-    <Layout>
+    <Layout head="Trending | Pahe.in">
       <Box display="flex" justifyContent="center" marginY={10}>
         <Box
           paddingX={{

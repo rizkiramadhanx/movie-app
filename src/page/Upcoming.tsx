@@ -29,7 +29,7 @@ const Upcoming = () => {
   };
 
   return (
-    <Layout>
+    <Layout head="Upcoming | Pahe.in">
       <Box display="flex" justifyContent="center" marginY={10}>
         <Box
           paddingX={{

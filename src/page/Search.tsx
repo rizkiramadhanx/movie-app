@@ -41,7 +41,7 @@ const Search = () => {
   };
 
   return (
-    <Layout>
+    <Layout head="Search | Pahe.in">
       <Box display="flex" justifyContent="center" marginY={10}>
         <Box
           paddingX={{
@@ -86,7 +86,6 @@ const Search = () => {
               ref={inputReference}
             />
           </Box>
-
           <SimpleGrid
             minHeight="500px"
             columns={data && !data.results[0] ? 1 : [2, null, 4, 5]}
