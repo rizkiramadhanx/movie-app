@@ -34,7 +34,6 @@ const Main = () => {
       <Box position="relative">
         <Box
           position="absolute"
-          bg="red"
           width="full"
           zIndex="-1"
           backgroundImage={BASE_URL_IMAGE_MOVIE + backgroundHero}
